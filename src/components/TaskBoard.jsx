@@ -7,7 +7,7 @@ import TaskModal from './TaskModal';
 import { v4 as uuidv4 } from 'uuid';
 import { FiPlus } from 'react-icons/fi';
 
-const TaskBoard = () => {
+const TaskBoard = ({ sortOrder }) => {
     const [columns, setColumns] = useState(kanbanData);
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [editingTask, setEditingTask] = useState(null);
@@ -73,6 +73,7 @@ const TaskBoard = () => {
             const newTask = {
                 ...savedTask,
                 id: uuidv4(),
+                createdAt: new Date().toISOString(),
                 tags: ['New'], assignees: [], comments: 0, attachments: 0,
             };
             const newColumns = { ...columns };
@@ -109,7 +110,14 @@ const TaskBoard = () => {
                             <Droppable droppableId={columnId}>
                                 {(provided, snapshot) => (
                                     <div {...provided.droppableProps} ref={provided.innerRef} className={`p-2 rounded-lg min-h-[500px] transition-colors ${snapshot.isDraggingOver ? 'bg-slate-200 dark:bg-slate-700' : 'bg-slate-100 dark:bg-slate-900'}`}>
-                                        {column.items.map((item, index) => (
+                                        {column.items
+                                         .slice() // Create a shallow copy to avoid mutating state
+                                         .sort((a, b) => {
+                                             const dateA = new Date(a.createdAt);
+                                             const dateB = new Date(b.createdAt);
+                                             return sortOrder === 'newest' ? dateB - dateA : dateA - dateB;
+                                         })
+                                        .map((item, index) => (
                                             <Draggable key={item.id} draggableId={item.id} index={index}>
                                                 {(provided) => (
                                                     <div ref={provided.innerRef} {...provided.draggableProps} {...provided.dragHandleProps}>

@@ -161,22 +161,22 @@ export const kanbanData = {
   todo: {
     name: 'To do',
     items: [
-      { id: 'task-1', title: 'Landing page design & development', description: 'Lorem ipsum dolor sit amet consectetur sed id makai makai porta malesuada dictumst.', tags: ['Development'], assignees: [1, 2], comments: 10, attachments: 4 },
-      { id: 'task-2', title: 'Landing page design', description: 'Lorem ipsum dolor sit amet consectetur sed id makai makai porta malesuada dictumst.', tags: ['Design'], assignees: [3], comments: 8, attachments: 3 },
+      { id: 'task-1', title: 'Landing page design & development', description: 'Lorem ipsum dolor sit amet...', tags: ['Development'], assignees: [1, 2], comments: 10, attachments: 4, createdAt: '2025-09-25T10:00:00Z' },
+      { id: 'task-2', title: 'Landing page design', description: 'Lorem ipsum dolor sit amet...', tags: ['Design'], assignees: [3], comments: 8, attachments: 3, createdAt: '2025-09-24T14:30:00Z' },
     ],
   },
   inProgress: {
     name: 'In progress',
     items: [
-      { id: 'task-3', title: 'Mobile app UI/UX design & development', description: 'Lorem ipsum dolor sit amet consectetur sed id makai makai porta malesuada dictumst.', tags: ['Development'], assignees: [1, 3], comments: 10, attachments: 2 },
-      { id: 'task-4', title: 'Fix homepage bugs', description: 'Lorem ipsum dolor sit amet consectetur sed id makai makai porta malesuada dictumst.', tags: ['Development'], assignees: [2], comments: 4, attachments: 12 },
+      { id: 'task-3', title: 'Mobile app UI/UX design & development', description: 'Lorem ipsum dolor sit amet...', tags: ['Development'], assignees: [1, 3], comments: 10, attachments: 2, createdAt: '2025-09-23T09:00:00Z' },
+      { id: 'task-4', title: 'Fix homepage bugs', description: 'Lorem ipsum dolor sit amet...', tags: ['Development'], assignees: [2], comments: 4, attachments: 12, createdAt: '2025-09-22T11:00:00Z' },
     ],
   },
   completed: {
     name: 'Completed',
     items: [
-      { id: 'task-5', title: 'SEO campaign', description: 'Lorem ipsum dolor sit amet consectetur sed id makai makai porta malesuada dictumst.', tags: ['Marketing'], assignees: [1, 2, 3], comments: 11, attachments: 10 },
-      { id: 'task-6', title: 'Target definition meeting', description: 'Lorem ipsum dolor sit amet consectetur sed id makai makai porta malesuada dictumst.', tags: ['Marketing'], assignees: [1], comments: 3, attachments: 14 },
+      { id: 'task-5', title: 'SEO campaign', description: 'Lorem ipsum dolor sit amet...', tags: ['Marketing'], assignees: [1, 2, 3], comments: 11, attachments: 10, createdAt: '2025-09-21T16:00:00Z' },
+      { id: 'task-6', title: 'Target definition meeting', description: 'Lorem ipsum dolor sit amet...', tags: ['Marketing'], assignees: [1], comments: 3, attachments: 14, createdAt: '2025-09-20T18:45:00Z' },
     ],
   },
 };

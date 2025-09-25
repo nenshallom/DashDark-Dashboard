@@ -4,7 +4,14 @@ import { FiMessageSquare, FiPaperclip, FiEdit, FiTrash2 } from 'react-icons/fi';
 
 const TaskCard = ({ item, onEdit, onDelete }) => { // Add onDelete prop
     const getTagColor = (tag) => {
-        // ... (getTagColor function remains the same)
+        const getTagColor = (tag) => {
+            switch (tag) {
+                case 'Development': return 'bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-300';
+                case 'Design': return 'bg-pink-100 text-pink-800 dark:bg-pink-900 dark:text-pink-300';
+                case 'Marketing': return 'bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-300';
+                default: return 'bg-gray-100 text-gray-800 dark:bg-gray-700 dark:text-gray-300';
+            }
+        };
         switch (tag) {
             case 'Development': return 'bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-300';
             case 'Design': return 'bg-pink-100 text-pink-800 dark:bg-pink-900 dark:text-pink-300';
@@ -38,6 +45,9 @@ const TaskCard = ({ item, onEdit, onDelete }) => { // Add onDelete prop
                     ))}
                 </div>
                 <div className="flex items-center gap-4 text-sm text-slate-500 dark:text-slate-400">
+                    <span className="text-xs">
+                        {new Date(item.createdAt).toLocaleDateString()}
+                    </span>
                     <span className="flex items-center gap-1"><FiMessageSquare size={14} />{item.comments}</span>
                     <span className="flex items-center gap-1"><FiPaperclip size={14} />{item.attachments}</span>
                 </div>
