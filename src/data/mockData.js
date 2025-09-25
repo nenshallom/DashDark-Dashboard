@@ -156,3 +156,27 @@ export const allUsersData = [
 { id: 10, name: 'Ernest Houten', email: 'ernest@linkedin.com', phone: '(754) 339 - 8913', location: 'India', company: 'LinkedIn', status: 'Offline', avatar: 'https://i.pravatar.cc/40?img=10' },
 // Add more users if you want to test pagination further
 ];
+
+export const kanbanData = {
+  todo: {
+    name: 'To do',
+    items: [
+      { id: 'task-1', title: 'Landing page design & development', description: 'Lorem ipsum dolor sit amet consectetur sed id makai makai porta malesuada dictumst.', tags: ['Development'], assignees: [1, 2], comments: 10, attachments: 4 },
+      { id: 'task-2', title: 'Landing page design', description: 'Lorem ipsum dolor sit amet consectetur sed id makai makai porta malesuada dictumst.', tags: ['Design'], assignees: [3], comments: 8, attachments: 3 },
+    ],
+  },
+  inProgress: {
+    name: 'In progress',
+    items: [
+      { id: 'task-3', title: 'Mobile app UI/UX design & development', description: 'Lorem ipsum dolor sit amet consectetur sed id makai makai porta malesuada dictumst.', tags: ['Development'], assignees: [1, 3], comments: 10, attachments: 2 },
+      { id: 'task-4', title: 'Fix homepage bugs', description: 'Lorem ipsum dolor sit amet consectetur sed id makai makai porta malesuada dictumst.', tags: ['Development'], assignees: [2], comments: 4, attachments: 12 },
+    ],
+  },
+  completed: {
+    name: 'Completed',
+    items: [
+      { id: 'task-5', title: 'SEO campaign', description: 'Lorem ipsum dolor sit amet consectetur sed id makai makai porta malesuada dictumst.', tags: ['Marketing'], assignees: [1, 2, 3], comments: 11, attachments: 10 },
+      { id: 'task-6', title: 'Target definition meeting', description: 'Lorem ipsum dolor sit amet consectetur sed id makai makai porta malesuada dictumst.', tags: ['Marketing'], assignees: [1], comments: 3, attachments: 14 },
+    ],
+  },
+};

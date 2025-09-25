@@ -22,7 +22,7 @@ const Sidebar = ({ isSidebarOpen, setSidebarOpen }) => {
   const navLinks = [
     { icon: <RiDashboardLine size={20} />, name: 'Reports', path: '/' },
     { icon: <RiShoppingBagLine size={20} />, name: 'Products', path: '/products' },
-    { icon: <FiStar size={20} />, name: 'Features', path: '/features' },
+    { icon: <FiStar size={20} />, name: 'Task', path: '/tasks' }, 
     { icon: <FiUsers size={20} />, name: 'Users', path: '/users' },
     { icon: <FiDollarSign size={20} />, name: 'Pricing', path: '/pricing' },
     { icon: <FiLink size={20} />, name: 'Integrations', path: '/integrations' },

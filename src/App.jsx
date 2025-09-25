@@ -5,7 +5,8 @@ import Sidebar from './components/Sidebar';
 import Header from './components/Header';
 import DashboardPage from './pages/DashboardPage';
 import ProductsPage from './pages/ProductsPage';
-import UsersPage from './pages/UsersPage'; // Import the new page
+import UsersPage from './pages/UsersPage'; 
+import TaskPage from './pages/TaskPage'; 
 
 function App() {
   const [isSidebarOpen, setSidebarOpen] = useState(true);
@@ -20,7 +21,8 @@ function App() {
             <Routes>
               <Route path="/" element={<DashboardPage />} />
               <Route path="/products" element={<ProductsPage />} />
-              <Route path="/users" element={<UsersPage />} /> {/* Add this route */}
+              <Route path="/users" element={<UsersPage />} />
+              <Route path="/tasks" element={<TaskPage />} /> 
             </Routes>
           </main>
         </div>
