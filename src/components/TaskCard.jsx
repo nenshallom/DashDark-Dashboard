@@ -1,9 +1,10 @@
 // src/components/TaskCard.jsx
 import React from 'react';
-import { FiMessageSquare, FiPaperclip } from 'react-icons/fi';
+import { FiMessageSquare, FiPaperclip, FiEdit, FiTrash2 } from 'react-icons/fi'; // Import FiTrash2
 
-const TaskCard = ({ item }) => {
+const TaskCard = ({ item, onEdit, onDelete }) => { // Add onDelete prop
     const getTagColor = (tag) => {
+        // ... (getTagColor function remains the same)
         switch (tag) {
             case 'Development': return 'bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-300';
             case 'Design': return 'bg-pink-100 text-pink-800 dark:bg-pink-900 dark:text-pink-300';
@@ -13,8 +14,19 @@ const TaskCard = ({ item }) => {
     };
 
     return (
-        <div className="bg-white dark:bg-slate-800 p-4 rounded-lg shadow-md mb-4">
-            <h4 className="font-semibold text-slate-800 dark:text-white">{item.title}</h4>
+        <div className="bg-white dark:bg-slate-800 p-4 rounded-lg shadow-md mb-4 group">
+            <div className="flex justify-between items-start">
+                <h4 className="font-semibold text-slate-800 dark:text-white">{item.title}</h4>
+                {/* Edit and Delete buttons, visible on hover */}
+                <div className="flex items-center gap-2 opacity-0 group-hover:opacity-100 transition-opacity text-slate-500">
+                    <button onClick={onEdit} className="hover:text-purple-500">
+                        <FiEdit size={16} />
+                    </button>
+                    <button onClick={onDelete} className="hover:text-red-500">
+                        <FiTrash2 size={16} />
+                    </button>
+                </div>
+            </div>
             <p className="text-sm text-slate-500 dark:text-slate-400 mt-1">{item.description}</p>
             <div className="mt-4">
                 <span className={`px-2 py-1 text-xs font-medium rounded-full ${getTagColor(item.tags[0])}`}>{item.tags[0]}</span>
