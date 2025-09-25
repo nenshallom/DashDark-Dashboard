@@ -11,7 +11,15 @@ const WebsiteVisitorsSourcesChart = () => {
                 <ResponsiveContainer width="100%" height="100%">
                     <PieChart>
                         {/* We use two Pie components to create the layered effect */}
-                        <Pie data={websiteVisitorsSourcesData} dataKey="value" cx="50%" cy="50%" outerRadius={80} innerRadius={70} fill="#8884d8">
+                        <Pie 
+                            data={websiteVisitorsSourcesData} 
+                            dataKey="value" 
+                            cx="50%" 
+                            cy="50%" 
+                            outerRadius={80} 
+                            innerRadius={70} 
+                            fill="#8884d8"
+                            >
                              {websiteVisitorsSourcesData.map((entry, index) => <Cell key={`cell-${index}`} fill={entry.color} />)}
                         </Pie>
                         <Pie data={websiteVisitorsSourcesData} dataKey="value" cx="50%" cy="50%" outerRadius={65} innerRadius={60} fill="#8884d8" opacity={0.5}>

@@ -7,7 +7,7 @@ import TaskModal from './TaskModal';
 import { v4 as uuidv4 } from 'uuid';
 import { FiPlus } from 'react-icons/fi';
 
-const TaskBoard = ({ sortOrder }) => {
+const TaskBoard = ({ sortOrder, searchQuery }) => {
     const [columns, setColumns] = useState(kanbanData);
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [editingTask, setEditingTask] = useState(null);
@@ -99,43 +99,51 @@ const TaskBoard = ({ sortOrder }) => {
         <>
             <DragDropContext onDragEnd={onDragEnd}>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                    {Object.entries(columns).map(([columnId, column]) => (
-                        <div key={columnId}>
-                            <div className="flex justify-between items-center mb-4">
-                                <h3 className="font-semibold text-slate-800 dark:text-white">{column.name} <span className="text-slate-500">{column.items.length}</span></h3>
-                                <button onClick={() => handleAddTask(columnId)} className="p-1 rounded-md text-slate-500 hover:bg-slate-200 dark:hover:bg-slate-700">
-                                    <FiPlus size={20} />
-                                </button>
+                    {Object.entries(columns).map(([columnId, column]) => {
+                        // Filter tasks based on the search query
+                        const filteredTasks = column.items.filter(item =>
+                            item.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+                            item.description.toLowerCase().includes(searchQuery.toLowerCase())
+                        );
+
+                        return (
+                            <div key={columnId}>
+                                <div className="flex justify-between items-center mb-4">
+                                    <h3 className="font-semibold text-slate-800 dark:text-white">{column.name} <span className="text-slate-500">{filteredTasks.length}</span></h3>
+                                    <button onClick={() => handleAddTask(columnId)} className="p-1 rounded-md text-slate-500 hover:bg-slate-200 dark:hover:bg-slate-700">
+                                        <FiPlus size={20} />
+                                    </button>
+                                </div>
+                                <Droppable droppableId={columnId}>
+                                    {(provided, snapshot) => (
+                                        <div {...provided.droppableProps} ref={provided.innerRef} className={`p-2 rounded-lg min-h-[500px] transition-colors ${snapshot.isDraggingOver ? 'bg-slate-200 dark:bg-slate-700' : 'bg-slate-100 dark:bg-slate-900'}`}>
+                                            {filteredTasks // Use the filtered list for sorting and rendering
+                                                .slice()
+                                                .sort((a, b) => {
+                                                    const dateA = new Date(a.createdAt);
+                                                    const dateB = new Date(b.createdAt);
+                                                    return sortOrder === 'newest' ? dateB - dateA : dateA - dateB;
+                                                })
+                                                .map((item, index) => (
+                                                <Draggable key={item.id} draggableId={item.id} index={index}>
+                                                    {(provided) => (
+                                                        <div ref={provided.innerRef} {...provided.draggableProps} {...provided.dragHandleProps}>
+                                                            <TaskCard 
+                                                                item={item} 
+                                                                onEdit={() => handleEditTask(item, columnId)}
+                                                                onDelete={() => handleDeleteTask(item.id, columnId)}
+                                                            />
+                                                        </div>
+                                                    )}
+                                                </Draggable>
+                                            ))}
+                                            {provided.placeholder}
+                                        </div>
+                                    )}
+                                </Droppable>
                             </div>
-                            <Droppable droppableId={columnId}>
-                                {(provided, snapshot) => (
-                                    <div {...provided.droppableProps} ref={provided.innerRef} className={`p-2 rounded-lg min-h-[500px] transition-colors ${snapshot.isDraggingOver ? 'bg-slate-200 dark:bg-slate-700' : 'bg-slate-100 dark:bg-slate-900'}`}>
-                                        {column.items
-                                         .slice() // Create a shallow copy to avoid mutating state
-                                         .sort((a, b) => {
-                                             const dateA = new Date(a.createdAt);
-                                             const dateB = new Date(b.createdAt);
-                                             return sortOrder === 'newest' ? dateB - dateA : dateA - dateB;
-                                         })
-                                        .map((item, index) => (
-                                            <Draggable key={item.id} draggableId={item.id} index={index}>
-                                                {(provided) => (
-                                                    <div ref={provided.innerRef} {...provided.draggableProps} {...provided.dragHandleProps}>
-                                                        <TaskCard 
-                                                            item={item} 
-                                                            onEdit={() => handleEditTask(item, columnId)}
-                                                            onDelete={() => handleDeleteTask(item.id, columnId)}
-                                                        />
-                                                    </div>
-                                                )}
-                                            </Draggable>
-                                        ))}
-                                        {provided.placeholder}
-                                    </div>
-                                )}
-                            </Droppable>
-                        </div>
-                    ))}
+                        );
+                    })}
                 </div>
             </DragDropContext>
             

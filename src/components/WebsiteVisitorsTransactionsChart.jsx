@@ -10,7 +10,14 @@ const WebsiteVisitorsTransactionsChart = () => {
             <div className="relative h-40 w-full mt-4">
                 <ResponsiveContainer width="100%" height="100%">
                     <PieChart>
-                        <Pie data={websiteVisitorsTransactionsData} dataKey="value" startAngle={180} endAngle={0} innerRadius={60} outerRadius={80} paddingAngle={2} cornerRadius={10}>
+                        <Pie 
+                            data={websiteVisitorsTransactionsData} 
+                            dataKey="value" 
+                            startAngle={180} 
+                            endAngle={0} 
+                            innerRadius={60} 
+                            outerRadius={80} 
+                            >
                             {websiteVisitorsTransactionsData.map((entry, index) => <Cell key={`cell-${index}`} fill={entry.color} stroke={entry.color} />)}
                         </Pie>
                     </PieChart>
