@@ -34,7 +34,7 @@ export const summaryCards = [
   },
 ];
 
-export const mainChartData = [
+export const mainChartData12m = [
   { name: 'Jan', Revenue: 4000, Expenses: 2400 },
   { name: 'Feb', Revenue: 3000, Expenses: 1398 },
   { name: 'Mar', Revenue: 2000, Expenses: 9800 },
@@ -49,6 +49,25 @@ export const mainChartData = [
   { name: 'Dec', Revenue: 3490, Expenses: 4300 },
 ];
 
+export const mainChartData6m = [
+  { name: 'Jul', Revenue: 3490, Expenses: 4300 },
+  { name: 'Aug', Revenue: 2000, Expenses: 9800 },
+  { name: 'Sep', Revenue: 2780, Expenses: 3908 },
+  { name: 'Oct', Revenue: 1890, Expenses: 4800 },
+  { name: 'Nov', Revenue: 2390, Expenses: 3800 },
+  { name: 'Dec', Revenue: 3490, Expenses: 4300 },
+];
+
+export const mainChartData30d = [
+  { name: 'Day 1', Revenue: 200, Expenses: 150 },
+  { name: 'Day 5', Revenue: 400, Expenses: 300 },
+  { name: 'Day 10', Revenue: 350, Expenses: 200 },
+  { name: 'Day 15', Revenue: 500, Expenses: 400 },
+  { name: 'Day 20', Revenue: 450, Expenses: 350 },
+  { name: 'Day 25', Revenue: 600, Expenses: 450 },
+  { name: 'Day 30', Revenue: 550, Expenses: 500 },
+];
+
 export const recentOrders = [
     { id: 'HR32', date: 'Dec 28, 11:09 AM', status: 'Paid', total: 329.40 },
     { id: 'HR31', date: 'Dec 28, 11:02 AM', status: 'Pending', total: 117.28 },
@@ -57,36 +76,93 @@ export const recentOrders = [
     { id: 'HR28', date: 'Dec 27, 1:01 PM', status: 'Pending', total: 240.78 },
 ];
 
-export const profitChartData = [
-    { name: '12 AM', value: 200 }, { name: '', value: 300 },
-    { name: '8 AM', value: 400 }, { name: '', value: 250 },
-    { name: '4 PM', value: 500 }, { name: '', value: 350 },
-    { name: '11 PM', value: 450 }, { name: '', value: 300 },
-];
+export const profitChartData = {
+  '12m': [
+      { name: '12 AM', value: 200 }, { name: '', value: 300 },
+      { name: '8 AM', value: 400 }, { name: '', value: 250 },
+      { name: '4 PM', value: 500 }, { name: '', value: 350 },
+      { name: '11 PM', value: 450 }, { name: '', value: 300 },
+  ],
+  '6m': [
+      { name: '12 AM', value: 180 }, { name: '8 AM', value: 350 },
+      { name: '4 PM', value: 480 }, { name: '11 PM', value: 400 },
+  ],
+  '30d': [
+      { name: 'Week 1', value: 150 }, { name: 'Week 2', value: 200 },
+      { name: 'Week 3', value: 180 }, { name: 'Week 4', value: 220 },
+  ],
+};
 
-export const sessionsChartData = [
-    { name: '12 AM', value: 100 }, { name: '4 AM', value: 200 },
-    { name: '8 AM', value: 150 }, { name: '12 PM', value: 400 },
-    { name: '4 PM', value: 250 }, { name: '8 PM', value: 300 },
-    { name: '11 PM', value: 200 },
-];
+// Replace the old sessionsChartData array
+export const sessionsChartData = {
+  '12m': [
+      { name: '12 AM', value: 100 }, { name: '4 AM', value: 200 },
+      { name: '8 AM', value: 150 }, { name: '12 PM', value: 400 },
+      { name: '4 PM', value: 250 }, { name: '8 PM', value: 300 },
+      { name: '11 PM', value: 200 },
+  ],
+  '6m': [
+      { name: '12 AM', value: 80 }, { name: '8 AM', value: 180 },
+      { name: '4 PM', value: 220 }, { name: '11 PM', value: 190 },
+  ],
+  '30d': [
+      { name: 'Week 1', value: 50 }, { name: 'Week 2', value: 90 },
+      { name: 'Week 3', value: 70 }, { name: 'Week 4', value: 110 },
+  ],
+};
 
-export const reportsOverviewData = [
-    { name: 'Desktop users', value: 15624, color: '#a855f7' }, // Purple
-    { name: 'Phone app users', value: 5546, color: '#3b82f6' },  // Blue
-    { name: 'Laptop users', value: 2478, color: '#22d3ee' },  // Cyan
-  ];
+export const reportsOverviewData = {
+  '1y': [
+      { name: 'Desktop users', value: 15624, color: '#a855f7' },
+      { name: 'Phone app users', value: 5546, color: '#3b82f6' },
+      { name: 'Laptop users', value: 2478, color: '#22d3ee' },
+  ],
+  '6m': [
+      { name: 'Desktop users', value: 8312, color: '#a855f7' },
+      { name: 'Phone app users', value: 2145, color: '#3b82f6' },
+      { name: 'Laptop users', value: 1023, color: '#22d3ee' },
+  ],
+  '30d': [
+      { name: 'Desktop users', value: 1245, color: '#a855f7' },
+      { name: 'Phone app users', value: 456, color: '#3b82f6' },
+      { name: 'Laptop users', value: 198, color: '#22d3ee' },
+  ],
+};
+
 
 export const usersByCountryData = {
-  totalUsers: '12.4K',
-  change: '+28.5%',
-  countries: [
-    { name: 'United states', percentage: 30, color: 'bg-purple-500', pos: { top: '35%', left: '22%' } },
-    { name: 'United Kingdom', percentage: 20, color: 'bg-gray-400', pos: { top: '25%', left: '48%' } },
-    { name: 'Canada', percentage: 20, color: 'bg-gray-400', pos: { top: '20%', left: '15%' } },
-    { name: 'Australia', percentage: 15, color: 'bg-cyan-400', pos: { top: '70%', left: '85%' }, active: true },
-    { name: 'Spain', percentage: 15, color: 'bg-gray-400', pos: { top: '40%', left: '45%' } },
-  ],
+  '1y': {
+      totalUsers: '12.4K',
+      change: '+28.5%',
+      countries: [
+          { name: 'United states', percentage: 30, color: 'bg-purple-500', pos: { top: '35%', left: '22%' } },
+          { name: 'United Kingdom', percentage: 20, color: 'bg-gray-400', pos: { top: '25%', left: '48%' } },
+          { name: 'Australia', percentage: 15, color: 'bg-cyan-400', pos: { top: '70%', left: '85%' }, active: true },
+          { name: 'Canada', percentage: 20, color: 'bg-gray-400', pos: { top: '20%', left: '15%' } },
+          { name: 'Spain', percentage: 15, color: 'bg-gray-400', pos: { top: '40%', left: '45%' } },
+      ],
+  },
+  '6m': {
+      totalUsers: '7.8K',
+      change: '+15.2%',
+      countries: [
+          { name: 'United states', percentage: 35, color: 'bg-purple-500', pos: { top: '35%', left: '22%' } },
+          { name: 'United Kingdom', percentage: 25, color: 'bg-gray-400', pos: { top: '25%', left: '48%' } },
+          { name: 'Australia', percentage: 10, color: 'bg-cyan-400', pos: { top: '70%', left: '85%' }, active: true },
+          { name: 'Canada', percentage: 15, color: 'bg-gray-400', pos: { top: '20%', left: '15%' } },
+          { name: 'Germany', percentage: 15, color: 'bg-gray-400', pos: { top: '30%', left: '52%' } },
+      ],
+  },
+  '30d': {
+      totalUsers: '1.1K',
+      change: '+5.8%',
+      countries: [
+          { name: 'United states', percentage: 40, color: 'bg-purple-500', pos: { top: '35%', left: '22%' } },
+          { name: 'Canada', percentage: 25, color: 'bg-gray-400', pos: { top: '20%', left: '15%' } },
+          { name: 'Australia', percentage: 20, color: 'bg-cyan-400', pos: { top: '70%', left: '85%' }, active: true },
+          { name: 'India', percentage: 15, color: 'bg-gray-400', pos: { top: '50%', left: '70%' } },
+      ],
+  }
 };
 
 export const analyticsStats = [
@@ -112,11 +188,24 @@ export const teamProgressData = [
     { name: 'Matt Cannon', email: 'matt.cannon@example.com', progress: 78 },
 ];
 
-export const websiteVisitorsSourcesData = [
-    { name: 'Organic', value: 30, color: '#a855f7' },
-    { name: 'Social', value: 50, color: '#3b82f6' },
-    { name: 'Direct', value: 20, color: '#22d3ee' },
-];
+export const websiteVisitorsSourcesData = {
+  '1y': [
+      { name: 'Organic', value: 30, color: '#a855f7' },
+      { name: 'Social', value: 50, color: '#3b82f6' },
+      { name: 'Direct', value: 20, color: '#22d3ee' },
+  ],
+  '6m': [
+      { name: 'Organic', value: 35, color: '#a855f7' },
+      { name: 'Social', value: 45, color: '#3b82f6' },
+      { name: 'Direct', value: 20, color: '#22d3ee' },
+  ],
+  '30d': [
+      { name: 'Organic', value: 25, color: '#a855f7' },
+      { name: 'Social', value: 55, color: '#3b82f6' },
+      { name: 'Direct', value: 20, color: '#22d3ee' },
+  ],
+};
+
 
 export const productsListData = [
     { name: 'iPhone 14 Pro Max', stock: '524 in stock', price: 1099.00 },

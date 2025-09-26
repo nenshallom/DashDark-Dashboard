@@ -19,7 +19,7 @@ const DashboardStats = () => {
             <h3 className="text-sm font-medium text-slate-500 dark:text-slate-400">{card.title}</h3>
             <card.icon className="text-slate-500" size={22} />
           </div>
-          <div className="mt-4">
+          <div className="flex gap-2 mt-4">
             <p className="text-3xl font-bold text-slate-800 dark:text-white">{card.value}</p>
             <p className={`text-sm mt-1 ${getChangeColor(card.changeType)}`}>{card.change}</p>
           </div>

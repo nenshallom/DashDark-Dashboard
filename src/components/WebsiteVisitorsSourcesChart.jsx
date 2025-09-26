@@ -1,29 +1,31 @@
 // src/components/WebsiteVisitorsSourcesChart.jsx
-import React from 'react';
+import React, { useState, useMemo } from 'react';
 import { PieChart, Pie, Cell, ResponsiveContainer } from 'recharts';
 import { websiteVisitorsSourcesData } from '../data/mockData';
 
 const WebsiteVisitorsSourcesChart = () => {
+    const [timeframe, setTimeframe] = useState('1y');
+    const chartData = useMemo(() => websiteVisitorsSourcesData[timeframe], [timeframe]);
+    const selectClasses = "bg-slate-100 dark:bg-slate-800 text-xs dark:text-white p-2 rounded focus:outline-none focus:ring-2 focus:ring-purple-500";
+
     return (
         <div className="bg-white dark:bg-slate-900 p-6 rounded-lg shadow-md h-full">
-            <h3 className="text-lg font-semibold text-slate-800 dark:text-white">Website Visitors</h3>
+            <div className="flex justify-between items-center">
+                <h3 className="text-lg font-semibold text-slate-800 dark:text-white">Website Visitors</h3>
+                <select value={timeframe} onChange={(e) => setTimeframe(e.target.value)} className={selectClasses}>
+                    <option value="1y">This Year</option>
+                    <option value="6m">Last 6 Months</option>
+                    <option value="30d">Last 30 Days</option>
+                </select>
+            </div>
             <div className="relative h-48 w-full mt-4">
                 <ResponsiveContainer width="100%" height="100%">
                     <PieChart>
-                        {/* We use two Pie components to create the layered effect */}
-                        <Pie 
-                            data={websiteVisitorsSourcesData} 
-                            dataKey="value" 
-                            cx="50%" 
-                            cy="50%" 
-                            outerRadius={80} 
-                            innerRadius={70} 
-                            fill="#8884d8"
-                            >
-                             {websiteVisitorsSourcesData.map((entry, index) => <Cell key={`cell-${index}`} fill={entry.color} />)}
+                        <Pie data={chartData} dataKey="value" cx="50%" cy="50%" outerRadius={80} innerRadius={70} fill="#8884d8">
+                             {chartData.map((entry, index) => <Cell key={`cell-${index}`} fill={entry.color} />)}
                         </Pie>
-                        <Pie data={websiteVisitorsSourcesData} dataKey="value" cx="50%" cy="50%" outerRadius={65} innerRadius={60} fill="#8884d8" opacity={0.5}>
-                             {websiteVisitorsSourcesData.map((entry, index) => <Cell key={`cell-${index}`} fill={entry.color} />)}
+                        <Pie data={chartData} dataKey="value" cx="50%" cy="50%" outerRadius={65} innerRadius={60} fill="#8884d8" opacity={0.5}>
+                             {chartData.map((entry, index) => <Cell key={`cell-${index}`} fill={entry.color} />)}
                         </Pie>
                     </PieChart>
                 </ResponsiveContainer>
@@ -32,7 +34,7 @@ const WebsiteVisitorsSourcesChart = () => {
                 </div>
             </div>
             <div className="w-full mt-6 space-y-3 px-4">
-                {websiteVisitorsSourcesData.map((item) => (
+                {chartData.map((item) => (
                     <li key={item.name} className="flex items-center justify-between">
                         <div className="flex items-center">
                             <span className="h-3 w-3 rounded-full mr-3" style={{ backgroundColor: item.color }}></span>
