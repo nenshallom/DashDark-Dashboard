@@ -1,5 +1,7 @@
 // src/data/mockData.js
 import { FiTrendingUp, FiUsers, FiUserPlus, FiDollarSign } from 'react-icons/fi';
+import { FaSlack, FaMailchimp, FaStripe, FaSalesforce, FaHubspot } from "react-icons/fa";
+import { DiGoogleAnalytics } from "react-icons/di";
 
 export const summaryCards = [
   {
@@ -180,3 +182,12 @@ export const kanbanData = {
     ],
   },
 };
+
+export const integrationsData = [
+  { id: 1, name: 'Slack', logo: FaSlack, description: 'Sync your team conversations and notifications.', category: 'Communication', status: 'Connected' },
+  { id: 2, name: 'Google Analytics', logo: DiGoogleAnalytics, description: 'Track your website traffic and user behavior.', category: 'Marketing', status: 'Connected' },
+  { id: 3, name: 'Mailchimp', logo: FaMailchimp, description: 'Manage your email campaigns and subscribers.', category: 'Marketing', status: 'Not Connected' },
+  { id: 4, name: 'Stripe', logo: FaStripe, description: 'Process payments and manage subscriptions.', category: 'Sales', status: 'Not Connected' },
+  { id: 5, name: 'Salesforce', logo: FaSalesforce, description: 'Manage your customer relationships and sales pipeline.', category: 'Sales', status: 'Connected' },
+  { id: 6, name: 'HubSpot', logo: FaHubspot, description: 'All-in-one platform for marketing, sales, and service.', category: 'Marketing', status: 'Not Connected' },
+];

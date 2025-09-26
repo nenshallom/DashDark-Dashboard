@@ -7,6 +7,7 @@ import DashboardPage from './pages/DashboardPage';
 import ProductsPage from './pages/ProductsPage';
 import UsersPage from './pages/UsersPage'; 
 import TaskPage from './pages/TaskPage'; 
+import IntegrationsPage from './pages/IntegrationsPage';
 
 function App() {
   const [isSidebarOpen, setSidebarOpen] = useState(true);
@@ -23,6 +24,7 @@ function App() {
               <Route path="/products" element={<ProductsPage />} />
               <Route path="/users" element={<UsersPage />} />
               <Route path="/tasks" element={<TaskPage />} /> 
+              <Route path="/integrations" element={<IntegrationsPage />} />
             </Routes>
           </main>
         </div>
