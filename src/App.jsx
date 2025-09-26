@@ -8,6 +8,7 @@ import ProductsPage from './pages/ProductsPage';
 import UsersPage from './pages/UsersPage'; 
 import TaskPage from './pages/TaskPage'; 
 import IntegrationsPage from './pages/IntegrationsPage';
+import SettingsPage from './pages/SettingsPage'; 
 
 function App() {
   const [isSidebarOpen, setSidebarOpen] = useState(true);
@@ -25,6 +26,7 @@ function App() {
               <Route path="/users" element={<UsersPage />} />
               <Route path="/tasks" element={<TaskPage />} /> 
               <Route path="/integrations" element={<IntegrationsPage />} />
+              <Route path="/settings" element={<SettingsPage />} />
             </Routes>
           </main>
         </div>

@@ -24,7 +24,6 @@ const Sidebar = ({ isSidebarOpen, setSidebarOpen }) => {
     { icon: <RiShoppingBagLine size={20} />, name: 'Products', path: '/products' },
     { icon: <FiStar size={20} />, name: 'Task', path: '/tasks' }, 
     { icon: <FiUsers size={20} />, name: 'Users', path: '/users' },
-    { icon: <FiDollarSign size={20} />, name: 'Pricing', path: '/pricing' },
     { icon: <FiLink size={20} />, name: 'Integrations', path: '/integrations' },
   ];
 
@@ -74,8 +73,7 @@ const Sidebar = ({ isSidebarOpen, setSidebarOpen }) => {
 
       <div className="space-y-2">
          {/* You can add paths to these links later as you build the pages */}
-         <Link to="#" className="flex items-center p-2 rounded-lg hover:bg-slate-800 text-gray-400 hover:text-white"><div className="flex items-center gap-3"><FiSettings size={20} />{isSidebarOpen && <span>Settings</span>}</div></Link>
-         <Link to="#" className="flex items-center p-2 rounded-lg hover:bg-slate-800 text-gray-400 hover:text-white"><div className="flex items-center gap-3"><BsFillFileEarmarkTextFill size={20} />{isSidebarOpen && <span>Template pages</span>}</div></Link>
+         <Link to="/settings" className="flex items-center p-2 rounded-lg hover:bg-slate-800 text-gray-400 hover:text-white"><div className="flex items-center gap-3"><FiSettings size={20} />{isSidebarOpen && <span>Settings</span>}</div></Link>
       </div>
 
        <div className={`flex items-center gap-3 mt-8 pt-4 border-t border-slate-700 ${!isSidebarOpen && 'justify-center'}`}>
